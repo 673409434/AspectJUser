@@ -13,8 +13,8 @@ import java.lang.annotation.Target;
  * Time: 下午6:36
  * Description:
  */
-//@Target({ElementType.METHOD})
-//@Retention(RetentionPolicy.RUNTIME)
-//public @interface PerformanceAnnotations {
-//    String value()
-//}
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+public @interface PerformanceAnnotations {
+    String value() default "";
+}
