@@ -143,8 +143,8 @@ public void handle(Exception e) {}
 更详细参看教程地址：https://github.com/HujiangTechnology/gradle_plugin_android_aspectjx
 
 1、在项目根目录的build.gradle里依赖AspectJX
- dependencies {
-        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.10'
+dependencies {
+        classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'
         }
 或者使用product目录下的jar包，在你的项目根目录下新建目录plugins，把product/gradle-android-plugin-aspectjx-2.0.0.jar拷贝到plugins，依赖jar包
 dependencies {
@@ -152,14 +152,20 @@ dependencies {
         }
 
 
-2、compile 'org.aspectj:aspectjrt:1.8.+' 必须添加到包含有AspectJ代码的module.
-note：区别于旧版本，离线新版本不再需要依赖org.aspectj:aspectjtools:1.8.+
+2、新建AspectJLib模块——————编写AspectJ代码
+note：
+区别于旧版本，离线新版本不再需要依赖org.aspectj:aspectjtools:1.8.+
+compile 'org.aspectj:aspectjrt:1.8.+' 必须添加到包含有AspectJ代码的module. 可以参考Demo    
 
 
-3、在app项目的build.gradle里应用插件
+3、在app项目Application module（app壳组件）的build.gradle里应用插件
 apply plugin: 'android-aspectjx'
 //或者这样也可以
-apply plugin: 'com.hujiang.android-aspectjx'
+apply plugin: 'com.hujiang.android-aspectjx'	
+
+
+4、在使用切面的业务module中引入AOP模块————AspectJLib模块
+api project(path: ":AspectJLib")
 
 
 
