@@ -1,13 +1,12 @@
-package com.dev.hh.ajuser
+package com.dev.hh.demo
 
 import android.app.Activity
 import android.os.Bundle
 import com.dev.hh.aspectj.annotation.PerformanceAnnotation
-import com.dev.hh.aspectj.annotation.TraceDelay
+import com.dev.hh.aspectj.annotation.TestAnnotation
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-@TraceDelay
 open class MainActivity : Activity() {
 
     open override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,9 +22,9 @@ open class MainActivity : Activity() {
 //            Greeter().greet() }
 //        aop_normal_class.setOnClickListener {
 //            NormalClass("normalClass").work() }
-//
+
         function_btn.setOnClickListener {
-            Greeter().greet()
+            test("xxxxxx")
         }
 
         initView()
@@ -33,7 +32,12 @@ open class MainActivity : Activity() {
 
     @PerformanceAnnotation("performance")
     private fun initView() {
+        android.util.Log.d("x",  "initView")
+    }
 
+    @TestAnnotation(value = "performances")
+    private fun test(str: String) {
+        android.util.Log.d("x",  "test:" + str)
     }
 
     override fun onResume() {

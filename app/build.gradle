@@ -2,8 +2,8 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-android-extensions'
-    id 'android-aspectjx'
 }
+apply plugin:  'android-aspectjx'
 
 android {
     compileSdkVersion 30
@@ -45,5 +45,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    api project(path: ":AspectJLib")
+    implementation project(path: ":BusinessModule")
 }

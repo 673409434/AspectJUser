@@ -15,6 +15,6 @@ import java.lang.annotation.Target;
  */
 @Target({ElementType.METHOD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PerformanceAnnotations {
+public @interface TestAnnotation {
     String value() default "";
 }
